@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)        // Jupiter
 //@RunWith(SpringRunner.class) 			// Vintage JUnit
 //@SelectClasses({UserController.class}) // suite
-@SpringBootTest(classes = ECommerceApplication.class)    // to wire ALL beans and components
+@SpringBootTest   // to wire ALL beans and components
 @AutoConfigureMockMvc
 @AutoConfigureJsonTesters
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)    // integration test
@@ -42,16 +42,12 @@ public class ECommerceApplicationTests {
     // user and jwt data
     private static String bearerValue = null;
     private static Long userId = null;
-    @Autowired
-    UserController userController;
-    @Autowired
-    MockMvc mvc;
-    @Autowired
-    private JacksonTester<CreateUserRequest> jsonCreateUserRequest;
-    @Autowired
-    private JacksonTester<ModifyCartRequest> jsonModifyCartRequest;
-    @Autowired
-    private JacksonTester<User> jsonUser;
+
+    @Autowired UserController userController;
+    @Autowired MockMvc mvc;
+    @Autowired JacksonTester<CreateUserRequest> jsonCreateUserRequest;
+    @Autowired JacksonTester<ModifyCartRequest> jsonModifyCartRequest;
+    @Autowired JacksonTester<User> jsonUser;
 
     private String quote(final String str) {
         return "\"" + str + "\"";

@@ -1,11 +1,8 @@
 package com.example.demo;
 
-import com.example.demo.controllers.UserController;
 import com.example.demo.model.persistence.Item;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.suite.api.SelectClasses;
 
 public class ItemTests {
 
