@@ -43,10 +43,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         // global configuration
         http
-                .cors().disable().csrf().disable()
+                .cors().and().csrf().disable()
                 .formLogin().disable()  // no MVC, disable form login
                 .logout().and()         // customize logout
-                .anonymous().disable()  // disable anonymous usage
+                .anonymous().and()      // allows anonymous usage (createUser)
 
                 // request authorization
                 .authorizeRequests()
@@ -54,7 +54,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, SecurityConstants.SIGN_UP_URL)
                     .permitAll()
                 .anyRequest()
-                    .denyAll()
+                    .authenticated()
                 .and()
 
                 // filters used to implement JWT authentication
