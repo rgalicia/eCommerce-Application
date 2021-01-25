@@ -23,14 +23,11 @@ import java.net.URI;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@ExtendWith(SpringExtension.class)        // Jupiter
-//@RunWith(SpringRunner.class) 			// Vintage JUnit
-//@SelectClasses({UserController.class}) // suite
-@SpringBootTest   // to wire ALL beans and components
+@ExtendWith(SpringExtension.class)      // Jupiter
+@SpringBootTest                         // to wire ALL beans and components
 @AutoConfigureMockMvc
 @AutoConfigureJsonTesters
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)    // integration test
-//@DataJpaTest		// only prepare persistence beans
 public class ECommerceApplicationTests {
 
     private static final String HEADER_STRING = "Authorization";
@@ -39,6 +36,7 @@ public class ECommerceApplicationTests {
     private static final String TEST_VALID_PASSWORD_1 = "abcdegh";
     private static final String TEST_VALID_PASSWORD_2 = "1234567";
     private static final String TEST_INVALID_PASSWORD = "12345";
+
     // user and jwt data
     private static String bearerValue = null;
     private static Long userId = null;
